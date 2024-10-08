@@ -29,15 +29,37 @@ contact.html
     </div>
 
     <script>
-        const videoElement = document.getElementById('background-video');
-        const videos = ['videos/video1.mp4', 'videos/video2.mp4', 'videos/video3.mp4'];
-        let currentVideo = 0;
+    const videoElement = document.getElementById('background-video');
+    const videos = [
+        'videos/video1.mp4', 'videos/video2.mp4', 'videos/video3.mp4', 'videos/video4.mp4',
+        'videos/video5.mp4', 'videos/video6.mp4', 'videos/video7.mp4', 'videos/video8.mp4',
+        'videos/video9.mp4', 'videos/video10.mp4', 'videos/video11.mp4', 'videos/video12.mp4'
+    ];
+    let currentVideo = 0;
+    
+    // Предзагрузка видео
+    function preloadVideo(src) {
+        const videoPreload = document.createElement('video');
+        videoPreload.src = src;
+        videoPreload.load();
+    }
 
-        setInterval(() => {
+    // Предзагружаем все видео
+    videos.forEach(preloadVideo);
+
+    // Плавная смена видео
+    function changeVideo() {
+        videoElement.classList.add('hidden'); // Плавно скрываем текущее видео
+        setTimeout(() => {
             currentVideo = (currentVideo + 1) % videos.length;
             videoElement.src = videos[currentVideo];
             videoElement.play();
-        }, 4000);  // Меняет видео каждые 4 секунды
-    </script>
+            videoElement.classList.remove('hidden'); // Плавно показываем новое видео
+        }, 1000);  // Задержка в 1 секунду для плавного затухания
+    }
+
+    setInterval(changeVideo, 4000);  // Меняет видео каждые 4 секунды
+</script>
+
 </body>
 </html>

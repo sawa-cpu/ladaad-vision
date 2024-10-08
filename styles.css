@@ -168,3 +168,12 @@ nav a:hover {
         padding: 20px;
     }
 }
+
+/* Плавный переход для видео, чтобы избежать серого экрана */
+video {
+    transition: opacity 1s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
