@@ -158,3 +158,13 @@ nav a {
 nav a:hover {
     color: #ff6347;
 }
+/* Пример адаптивных стилей */
+@media only screen and (max-width: 768px) {
+    .video-container video {
+        width: 100%;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
