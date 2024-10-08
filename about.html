@@ -4,12 +4,12 @@ about.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Ladaad Vision</title>
+    <title>About - Ladaad Vision</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="video-background">
-        <video id="background-video" autoplay muted loop>
+        <video id="background-video" autoplay muted loop playsinline>
             <source src="videos/video6.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -17,12 +17,13 @@ about.html
     </div>
 
     <div class="content">
-        <h1 class="custom-font">About Me</h1>
-        <p>I create visual stories that come to life on screen. <br>
-        Every project for me is an art that reveals new horizons.</p>
+        <h1>About Me</h1>
+        <p>I create visual stories that come to life on the screen. Each project is an art that opens new horizons.</p>
+
         <nav>
             <a href="index.html">Home</a> |
-            <a href="about.html">About</a>
+            <a href="about.html">About</a> |
+            <a href="contact.html">Contact</a>
         </nav>
     </div>
 
@@ -31,14 +32,11 @@ about.html
         const videos = ['videos/video6.mp4', 'videos/video7.mp4', 'videos/video8.mp4'];
         let currentVideo = 0;
 
-        videoElement.addEventListener('ended', () => {
+        setInterval(() => {
             currentVideo = (currentVideo + 1) % videos.length;
             videoElement.src = videos[currentVideo];
             videoElement.play();
-        });
-
-        // Preload the first video
-        videoElement.load();
+        }, 5000);  // Меняет видео каждые 5 секунд
     </script>
 </body>
 </html>
