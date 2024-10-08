@@ -6,36 +6,18 @@ index.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ladaad Vision</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const videos = document.querySelectorAll('.video-part');
-            let currentVideo = 0;
-
-            // Запустить первое видео
-            videos[currentVideo].play();
-
-            // Обработчик окончания видео
-            videos.forEach((video, index) => {
-                video.onended = function() {
-                    currentVideo = (index + 1) % videos.length; // Переход к следующему видео
-                    videos[currentVideo].play();
-                };
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="video-container">
-        <!-- Три видео, разделённые на 3 части экрана -->
-        <video autoplay muted preload="auto" class="video-part">
+        <video autoplay muted loop class="video-part" id="video1">
             <source src="videos/video13.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <video muted preload="auto" class="video-part">
+        <video autoplay muted loop class="video-part" id="video2">
             <source src="videos/video14.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <video muted preload="auto" class="video-part">
+        <video autoplay muted loop class="video-part" id="video3">
             <source src="videos/video15.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -52,5 +34,23 @@ index.html
             <a href="contact.html">Contact</a>
         </nav>
     </div>
+
+    <script>
+        const videos = ['videos/video13.mp4', 'videos/video14.mp4', 'videos/video15.mp4'];
+        const videoElements = [document.getElementById('video1'), document.getElementById('video2'), document.getElementById('video3')];
+
+        videoElements.forEach((video, index) => {
+            video.addEventListener('ended', () => {
+                videoElements[index].style.display = 'none'; // Скрываем текущее видео
+                const nextVideo = (index + 1) % videoElements.length;
+                videoElements[nextVideo].style.display = 'block'; // Показываем следующее видео
+                videoElements[nextVideo].play(); // Начинаем воспроизводить следующее видео
+            });
+
+            if (index > 0) {
+                video.style.display = 'none'; // Скрываем все видео кроме первого
+            }
+        });
+    </script>
 </body>
 </html>

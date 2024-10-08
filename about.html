@@ -9,7 +9,7 @@ about.html
 </head>
 <body>
     <div class="video-background">
-        <video id="background-video" autoplay muted loop preload="auto">
+        <video id="background-video" autoplay muted loop>
             <source src="videos/video6.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -18,12 +18,11 @@ about.html
 
     <div class="content">
         <h1 class="custom-font">About Me</h1>
-        <p>I create visual stories that come alive on screen.<br>
-        Each project for me is an art that reveals new horizons.</p>
+        <p>I create visual stories that come to life on screen. <br>
+        Every project for me is an art that reveals new horizons.</p>
         <nav>
             <a href="index.html">Home</a> |
-            <a href="about.html">About Me</a> |
-            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
         </nav>
     </div>
 
@@ -32,12 +31,14 @@ about.html
         const videos = ['videos/video6.mp4', 'videos/video7.mp4', 'videos/video8.mp4'];
         let currentVideo = 0;
 
-        // Меняет видео каждые 5 секунд
-        setInterval(() => {
+        videoElement.addEventListener('ended', () => {
             currentVideo = (currentVideo + 1) % videos.length;
             videoElement.src = videos[currentVideo];
             videoElement.play();
-        }, 5000);  
+        });
+
+        // Preload the first video
+        videoElement.load();
     </script>
 </body>
 </html>
