@@ -1,0 +1,42 @@
+about.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне - Ladaad Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop>
+            <source src="videos/video6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <div class="content">
+        <h1 class="custom-font">Обо мне</h1>
+        <p>Я создаю визуальные истории, которые оживают на экране. <br>
+        Каждый проект для меня — это искусство, раскрывающее новые горизонты.</p>
+        <nav>
+            <a href="index.html">Главная</a> |
+            <a href="about.html">Обо мне</a>
+        </nav>
+    </div>
+
+    <script>
+        const videoElement = document.getElementById('background-video');
+        const videos = ['videos/video6.mp4', 'videos/video7.mp4', 'videos/video8.mp4'];
+        let currentVideo = 0;
+
+        setInterval(() => {
+            currentVideo = (currentVideo + 1) % videos.length;
+            videoElement.src = videos[currentVideo];
+            videoElement.play();
+        }, 5000);  // Меняет видео каждые 5 секунд
+    </script>
+</body>
+</html>
+<a href="contact.html">Contact</a>

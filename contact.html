@@ -1,0 +1,51 @@
+contact.html
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ladaad Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="video-background">
+        <video id="background-video" autoplay muted loop>
+            <source src="videos/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <div class="content animated-content">
+        <h1>Contact Me</h1>
+        <div class="contact-options">
+            <a href="https://t.me/sawreriy" target="_blank" class="animated-text">Telegram: @sawreriy</a>
+            <a href="mailto:ramhaom@gmail.com" target="_blank" class="animated-text">Gmail: ramhaom@gmail.com</a>
+        </div>
+        <h2>Skills</h2>
+        <p class="animated-text">I create captivating videos and visually stunning images. My work is driven by a passion for storytelling through motion and design.</p>
+        
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <script>
+        const videoElement = document.getElementById('background-video');
+        const videos = [
+            'videos/video1.mp4', 'videos/video2.mp4', 'videos/video3.mp4', 'videos/video4.mp4',
+            'videos/video5.mp4', 'videos/video6.mp4', 'videos/video7.mp4', 'videos/video8.mp4',
+            'videos/video9.mp4', 'videos/video10.mp4', 'videos/video11.mp4', 'videos/video12.mp4'
+        ];
+        let currentVideo = 0;
+
+        setInterval(() => {
+            currentVideo = (currentVideo + 1) % videos.length;
+            videoElement.src = videos[currentVideo];
+            videoElement.play();
+        }, 4000);  // Меняет видео каждые 4 секунды
+    </script>
+</body>
+</html>
